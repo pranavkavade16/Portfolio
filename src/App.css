@@ -1,42 +1,287 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Page base */
+:root {
+  --bg: #0b0b0b;
+  --text: #e5e7eb;
+  --muted: #a3a3a3;
+  --subtitle: #cbd5e1;
+  --accent: #16a34a;
+  --bs-body-font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+html,
+body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Navbar */
+.navbar-dark {
+  background-color: #0f0f0f; /* slightly lighter than bg for subtle separation */
+  border-bottom: 1px solid #1f2937; /* soft divider */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.brand-icon {
+  font-family: 'Poppins', sans-serif;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: -0.5px;
 }
 
-.card {
-  padding: 2em;
+/* Hero layout accounts for navbar height (56px) */
+.hero {
+  min-height: calc(100vh - 56px);
+  display: grid;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
-.read-the-docs {
-  color: #888;
+/* Heading (Name) */
+.hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.25rem, 5vw, 4rem); /* 36px → 64px */
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.5rem;
+}
+
+/* Subtitle */
+.subtitle {
+  font-weight: 500;
+  color: var(--subtitle);
+  font-size: 1.25rem; /* 20px */
+  margin-bottom: 0.25rem;
+}
+
+/* Accent underline */
+.accent-underline {
+  width: 72px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 999px;
+  margin: 0.5rem 0 1.25rem;
+}
+
+/* Paragraphs on dark */
+.text-muted-on-dark {
+  color: var(--muted);
+  font-size: 1rem; /* 16px */
+}
+
+/* Buttons */
+.btn-accent {
+  background: var(--accent);
+  color: #0b0b0b;
+  border: none;
+  font-weight: 600;
+}
+.btn-accent:hover {
+  background: #138a3d;
+  color: #0b0b0b;
+}
+
+.btn-dark-soft {
+  background: #111318;
+  color: #cbd5e1;
+  border: 1px solid #2a2f36;
+}
+.btn-dark-soft:hover {
+  background: #171a21;
+  color: #e5e7eb;
+}
+
+/* Scroll-to-top floating button (bottom-right) */
+.scroll-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #136f42;
+  color: #e5e7eb;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.scroll-top:hover {
+  background: #0f5d37;
+}
+
+/* Content width similar to screenshot */
+.max-w {
+  max-width: 760px;
+}
+
+.margin-top {
+  margin-top: 200px;
+}
+
+/* ---------- Projects section ---------- */
+.projects-section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3rem); /* 32px → 48px */
+  line-height: 1.1;
+  letter-spacing: -0.3px;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+}
+
+.section-subtitle {
+  color: var(--subtitle);
+  font-size: 1rem; /* 16px */
+  margin-bottom: 1.75rem;
+}
+
+/* Card shell */
+.project-card {
+  background: #0f1115; /* dark card surface */
+  border: 1px solid #1f2937; /* subtle border */
+  border-radius: 12px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image area */
+.project-image-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9; /* keeps image height consistent */
+  overflow: hidden;
+}
+
+.project-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Gradient overlay at the bottom of the image */
+.project-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(11, 11, 11, 0.9) 0%,
+    rgba(11, 11, 11, 0) 60%
+  );
+  pointer-events: none; /* overlay doesn't block clicks */
+}
+
+/* Tech badges row placed at the bottom inside the image */
+.project-techs {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  pointer-events: auto; /* allow hover if needed */
+}
+
+.tech-badge {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1;
+  color: #cbd5e1;
+  background: #0b0d11;
+  border: 1px solid #2a2f36;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+/* Card body */
+.project-card .card-body {
+  border-top: 1px solid #1f2937;
+  color: var(--text);
+}
+
+.project-title {
+  font-weight: 700;
+  font-size: 1.125rem; /* 18px */
+  margin-bottom: 0.25rem;
+  color: var(--text);
+}
+
+.project-desc {
+  color: var(--muted);
+  font-size: 0.95rem; /* ~15px for compact look */
+}
+
+/* Footer links */
+.project-footer {
+  border-top: 1px solid #1f2937;
+  padding: 0.75rem 1rem;
+  display: flex;
+  gap: 1.25rem;
+  color: #cbd5e1;
+}
+
+.project-footer a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.project-footer a:hover {
+  color: #e5e7eb;
+}
+
+/* Optional hover lift (very subtle to match the calm look) */
+.project-card:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+/* Dark theme base */
+:root {
+  --bg: #0b0b0b;
+  --accent: #16a34a;
+  --subtitle: #cbd5e1;
+  --muted: #a3a3a3;
+}
+
+/* Image overlay */
+.overlay-bottom {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11, 11, 11, 0.9), transparent 60%);
+}
+
+/* Tech badges */
+.badge-tech {
+  background: #111318;
+  border: 1px solid #2a2f36;
+  color: #cbd5e1;
+  font-size: 0.75rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 50rem;
+}
+
+.tech-stack {
+  color: var(--text);
+  font-size: 1.5rem; /* 16px */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
