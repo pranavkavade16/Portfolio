@@ -60,7 +60,7 @@ const FrontPage = () => {
                 text={
                   "A modern e-commerce platform with real-time inventory management, secure payment processing, and personalized recommendations."
                 }
-                imageUrl={"src/assets/Image (8).jpeg"}
+                imageUrl={"src/assets/7D9C6DA0-A857-44CB-92B5-2EDB28225AF6.PNG"}
                 techStack={["React.js", "Node.js", "MongoDB"]}
                 demo={"https://kicks-culture-frontend.vercel.app/"}
                 code={"https://github.com/pranavkavade16/CRM-Frontend"}
