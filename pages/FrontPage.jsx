@@ -93,7 +93,7 @@ const FrontPage = () => {
                 imageUrl={
                   "https://blog-cdn.quarkly.io/2023/01/Best-CRM-Tools-for-Small-Businesses.png"
                 }
-                techStack={["React.js", "Chart.js", "MongoDB", "Node,js"]}
+                techStack={["React.js", "Chart.js", "MongoDB", "Node.js"]}
                 demo={"https://crm-frontend-alpha-topaz.vercel.app/"}
                 code={"https://github.com/pranavkavade16/KicksCulture-Frontend"}
               />
