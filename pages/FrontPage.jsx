@@ -1,9 +1,20 @@
+import { useRef } from "react";
 import Card from "../components/Card";
 
 const FrontPage = () => {
+  const contactRef = useRef(null);
+
+  const scrollToContact = () => {
+    const yOffset = -60; // small offset
+    const y =
+      contactRef.current.getBoundingClientRect().top +
+      window.pageYOffset +
+      yOffset;
+
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
   return (
     <>
-      {/* Hero Section */}
       <header className="hero">
         <div className="container">
           <div className="max-w">
@@ -30,18 +41,24 @@ const FrontPage = () => {
             </p>
 
             <div className="d-flex gap-3">
-              <button className="btn btn-accent px-3 py-2">Contact Me</button>
+              <button
+                className="btn btn-accent px-3 py-2"
+                onClick={scrollToContact}
+                style={{ color: "16a34a" }}
+              >
+                Contact Me
+              </button>
               <button className="btn btn-dark-soft px-3 py-2">Resume</button>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Floating scroll-to-top button */}
       <button
         className="scroll-top"
         aria-label="Scroll to top"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        style={{ color: "16a34a" }}
       >
         ↑
       </button>
@@ -154,7 +171,7 @@ const FrontPage = () => {
             </div>
           </div>
         </div>
-        <div className="container">
+        <div className="container" ref={contactRef}>
           <div className="margin-top">
             <h1 className="hero-title">Contact Me</h1>
             <p className="subtitle mt-3">
@@ -180,42 +197,52 @@ const FrontPage = () => {
                     </p>
                   </div>
                 </div>
-                <div
-                  class="card mt-4 card-hover"
-                  style={{ backgroundColor: "#1a1a1a" }}
+                <a
+                  href="https://www.linkedin.com/in/pranavkavade/"
+                  style={{ textDecoration: "none" }}
                 >
-                  <div className="m-4">
-                    <div class="tech-stack">
-                      <i
-                        class="bi bi-linkedin m-3"
-                        style={{ color: "#16a34a" }}
-                      ></i>
-                      LinkedIn
+                  <div
+                    class="card mt-4 card-hover"
+                    style={{ backgroundColor: "#1a1a1a" }}
+                  >
+                    <div className="m-4">
+                      <div class="tech-stack">
+                        <i
+                          class="bi bi-linkedin m-3"
+                          style={{ color: "#16a34a" }}
+                        ></i>
+                        LinkedIn
+                      </div>
+                      <p className="text-muted-on-dark mt-3 ms-3">
+                        Connect on LinkedIn
+                      </p>
                     </div>
-                    <p className="text-muted-on-dark mt-3 ms-3">
-                      Connect on LinkedIn
-                    </p>
                   </div>
-                </div>
+                </a>
               </div>
               <div className="col">
-                <div
-                  class="card card-hover"
-                  style={{ backgroundColor: "#1a1a1a" }}
+                <a
+                  href="https://github.com/pranavkavade16"
+                  style={{ textDecoration: "none" }}
                 >
-                  <div className="m-4">
-                    <div class="tech-stack">
-                      <i
-                        class="bi bi-github m-3"
-                        style={{ color: "#16a34a" }}
-                      ></i>
-                      GitHub
+                  <div
+                    class="card card-hover"
+                    style={{ backgroundColor: "#1a1a1a" }}
+                  >
+                    <div className="m-4">
+                      <div class="tech-stack">
+                        <i
+                          class="bi bi-github m-3"
+                          style={{ color: "#16a34a" }}
+                        ></i>
+                        GitHub
+                      </div>
+                      <p className="text-muted-on-dark mt-3 ms-3">
+                        Follow on GitHub
+                      </p>
                     </div>
-                    <p className="text-muted-on-dark mt-3 ms-3">
-                      Follow on GitHub
-                    </p>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
           </div>
