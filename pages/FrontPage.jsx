@@ -76,7 +76,7 @@ const FrontPage = () => {
               <Card
                 title={"KicksCulture"}
                 text={
-                  "A modern e-commerce platform with real-time inventory management, secure payment processing, and personalized recommendations."
+                  "An interactive MERN-based e-commerce platform designed for product discovery with advanced filtering, real-time cart management, and persistent order tracking."
                 }
                 imageUrl={"/KicksCulture.PNG"}
                 techStack={["React.js", "Node.js", "MongoDB"]}
