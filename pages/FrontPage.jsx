@@ -48,7 +48,12 @@ const FrontPage = () => {
               >
                 Contact Me
               </button>
-              <button className="btn btn-dark-soft px-3 py-2">Resume</button>
+              <a
+                href="https://drive.google.com/file/d/10UmgvhlPrsCU7H-YwVHRiXU0JLl52Pde/view?usp=sharing"
+                className="btn btn-dark-soft px-3 py-2"
+              >
+                Resume
+              </a>
             </div>
           </div>
         </div>
@@ -88,7 +93,7 @@ const FrontPage = () => {
               <Card
                 title={"NexusCRM"}
                 text={
-                  "An intuitive CRM system designed for lead management with pipeline visualization, automated follow-ups, and detailed analytics."
+                  "An intuitive full-stack CRM system enabling lead lifecycle management with advanced filtering, activity tracking, and data-driven insights."
                 }
                 imageUrl={
                   "https://blog-cdn.quarkly.io/2023/01/Best-CRM-Tools-for-Small-Businesses.png"

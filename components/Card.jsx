@@ -4,7 +4,7 @@ const Card = ({ title, text, imageUrl, techStack, demo, code }) => {
       <div className="ratio ratio-16x9">
         <img src={imageUrl} class="card-img-top" alt="appLogo" />
       </div>
-      <div class="card-body">
+      <div class="card-body d-flex flex-column">
         <h5
           class="text-muted-on-dark"
           style={{ color: "whitesmoke", fontSize: "1.3rem" }}
@@ -12,25 +12,27 @@ const Card = ({ title, text, imageUrl, techStack, demo, code }) => {
           {title}
         </h5>
         <p class="text-muted-on-dark">{text}</p>
-        <div className="d-flex flex-wrap gap-2">
-          {techStack?.map((item) => (
-            <h6>
-              <span class="badge text-bg-secondary">{item}</span>
-            </h6>
-          ))}
+        <div className="mt-auto">
+          <div className="d-flex flex-wrap gap-2">
+            {techStack?.map((item) => (
+              <h6>
+                <span class="badge text-bg-secondary">{item}</span>
+              </h6>
+            ))}
+          </div>
+          <a href={demo} class="btn btn-outline-dark mt-2">
+            <span style={{ color: "whitesmoke" }}>
+              <i class="bi bi-eye me-1"></i>
+              Demo
+            </span>
+          </a>
+          <a href={code} class="btn btn-outline-dark mt-2 ms-3">
+            <span style={{ color: "whitesmoke" }}>
+              <i class="bi bi-code-slash me-1"></i>
+              Code
+            </span>
+          </a>
         </div>
-        <a href={demo} class="btn btn-outline-dark mt-2">
-          <span style={{ color: "whitesmoke" }}>
-            <i class="bi bi-eye me-1"></i>
-            Demo
-          </span>
-        </a>
-        <a href={code} class="btn btn-outline-dark mt-2 ms-3">
-          <span style={{ color: "whitesmoke" }}>
-            <i class="bi bi-code-slash me-1"></i>
-            Code
-          </span>
-        </a>
       </div>
     </div>
   );
